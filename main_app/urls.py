@@ -17,4 +17,7 @@ urlpatterns = [
     path('toys/<int:pk>/delete/', views.ToyDelete.as_view(), name='toys_delete'),
     path('finches/<int:finch_id>/assoc_toy/<int:toy_id>', views.assoc_toy, name='assoc_toy'),
     path('finches/<int:finch_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('admin/', admin.site.urls),
+    path('',include('main_app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
