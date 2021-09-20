@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Finch, Toy
 from .forms import FeedingForm
+import os
 
 # Create your views here.
 
@@ -83,3 +84,6 @@ class ToyDelete(DeleteView):
 def assoc_toy(request, finch_id, toy_id):
     Finch.objects.get(id=finch_id).toys.add(toy_id)
     return redirect('detail', finch_id=finch_id)
+
+def some_function(request):
+    secret_key = os.environ['SECRET_KEY']
